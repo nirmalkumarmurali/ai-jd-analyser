@@ -119,4 +119,4 @@ streamlit run app/main.py
 ## 👤 Author
 
 **Nirmal** — Data Science & Analytics | EPITA Paris  
-[Portfolio](https://skyprio.com) · [GitHub](https://github.com/YOUR_USERNAME) · [LinkedIn](https://linkedin.com/in/YOUR_PROFILE)
+[Portfolio](https://skyprio.com) · [GitHub](https://github.com/nirmalkumarmurali) · [LinkedIn](https://www.linkedin.com/in/nirmal-kumar-murali/)
