@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+*.egg-info/
+
+# Data & outputs
+data/uploads/
+data/outputs/
+*.pdf
+*.csv
+
+# IDE
+.vscode/
+.idea/
+*.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
