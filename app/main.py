@@ -1,6 +1,7 @@
 import sys
 import os
 import streamlit as st
+import plotly.graph_objects as go
 
 st.set_page_config(
     page_title='AI Job Description Analyser',
