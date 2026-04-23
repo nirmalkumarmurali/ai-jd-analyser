@@ -15,9 +15,6 @@ sys.path.insert(0, _project_root)
 from dotenv import load_dotenv
 load_dotenv(os.path.join(_project_root, ".env"))
 
-import streamlit as st
-import plotly.graph_objects as go
-
 from utils.jd_parser import parse_jd
 from utils.cv_parser import parse_cv
 from utils.matcher import match
@@ -25,12 +22,6 @@ from utils.insights import generate_suggestions
 
 
 # --- Page config ---
-st.set_page_config(
-    page_title="AI JD Analyser",
-    page_icon=":page_facing_up:",
-    layout="wide",
-)
-
 st.title("AI Job Description Analyser")
 st.caption("Paste a job description, upload your CV, and get an instant match score + AI-powered suggestions.")
 
