@@ -121,8 +121,8 @@ streamlit run app/main.py
 - [x] Match Engine (Step 4)
 - [x] Insight Generator (Step 5)
 - [x] Streamlit UI (Step 6)
-- [ ] Testing with real JDs (Step 7)
-- [ ] Deploy to Hugging Face Spaces (Step 8)
+- [x] Testing with real JDs (Step 7)
+- [x] Deploy to Hugging Face Spaces (Step 8)
 
 ---
 
