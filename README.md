@@ -72,7 +72,7 @@ ai-jd-analyser/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/ai-jd-analyser.git
+git clone https://github.com/nirmalkumarmurali/ai-jd-analyser.git
 cd ai-jd-analyser
 
 # 2. Create virtual environment
