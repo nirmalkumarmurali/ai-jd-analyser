@@ -1,6 +1,12 @@
-# coding: utf-8
 import sys
 import os
+import streamlit as st
+
+st.set_page_config(
+    page_title='AI Job Description Analyser',
+    page_icon=':page_facing_up:',
+    layout='wide',
+)
 
 # Ensure the project root is on sys.path when running via `streamlit run app/main.py`
 _project_root = os.path.join(os.path.dirname(__file__), "..")
