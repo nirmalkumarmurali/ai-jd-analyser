@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.31-red?logo=streamlit)
 ![NLP](https://img.shields.io/badge/NLP-spaCy-09A3D5?logo=python)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+![Status](https://img.shields.io/badge/Status-Live-green)
 
 ---
 
@@ -37,13 +37,12 @@ Built as part of a data science portfolio to demonstrate end-to-end NLP, text si
 - **PDF Parsing**: pdfplumber, PyMuPDF
 - **Visualization**: Plotly, WordCloud, Matplotlib
 - **Web App**: Streamlit
-- **API**: Anthropic Claude (for smart suggestions)
+- **API**: Hugging Face Inference API (Novita provider)
 
 ---
 
 ## 📁 Project Structure
 
-```
 ai-jd-analyser/
 │
 ├── app/
@@ -53,7 +52,7 @@ ai-jd-analyser/
 │   ├── jd_parser.py         # JD text cleaning + skill extraction
 │   ├── cv_parser.py         # CV PDF parsing + text extraction
 │   ├── matcher.py           # TF-IDF similarity + gap analysis
-│   └── insights.py          # Suggestion generator (rule-based + LLM)
+│   └── insights.py          # Suggestion generator (LLM-powered)
 │
 ├── data/
 │   └── (sample JDs for testing)
@@ -64,7 +63,6 @@ ai-jd-analyser/
 ├── .env.example             # API key template
 ├── requirements.txt
 └── README.md
-```
 
 ---
 
@@ -83,9 +81,9 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 
-# 4. Add API key (optional, for smart suggestions)
+# 4. Add API key
 cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
+# Edit .env and add your HUGGINGFACE_API_KEY
 
 # 5. Run the app
 streamlit run app/main.py
@@ -99,20 +97,20 @@ streamlit run app/main.py
 2. **Parse** — spaCy extracts skills and keywords from both
 3. **Score** — TF-IDF + cosine similarity calculates match %
 4. **Analyse** — Matched vs missing skills are listed
-5. **Suggest** — Rule-based or LLM-powered improvement tips
+5. **Suggest** — LLM-powered improvement tips via Hugging Face API
 
 ---
 
 ## 🔭 Roadmap
 
 - [x] Project setup & structure
-- [ ] JD Parser (Step 2)
-- [ ] CV Parser (Step 3)
-- [ ] Match Engine (Step 4)
-- [ ] Insight Generator (Step 5)
-- [ ] Streamlit UI (Step 6)
+- [x] JD Parser (Step 2)
+- [x] CV Parser (Step 3)
+- [x] Match Engine (Step 4)
+- [x] Insight Generator (Step 5)
+- [x] Streamlit UI (Step 6)
 - [ ] Testing with real JDs (Step 7)
-- [ ] Deploy to Streamlit Cloud (Step 8)
+- [ ] Deploy to Hugging Face Spaces (Step 8)
 
 ---
 
