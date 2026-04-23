@@ -1,10 +1,8 @@
 import os
-import requests
+from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
 
-load_dotenv()
-
-HF_API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3"
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 
 def build_prompt(gap_analysis):
@@ -14,13 +12,13 @@ def build_prompt(gap_analysis):
     score = gap_analysis["match_score"]
 
     return (
-        f"<s>[INST] A candidate's CV was compared against a job description.\n\n"
+        f"A candidate's CV was compared against a job description.\n\n"
         f"Match score: {score}%\n"
         f"Skills already present: {matched}\n"
         f"Skills missing from CV: {missing}\n\n"
         "Based on this gap analysis, provide 3-5 specific, actionable suggestions "
         "the candidate can act on to improve their CV and better match this job. "
-        "Be concise and practical. Return the suggestions as a numbered list. [/INST]"
+        "Be concise and practical. Return the suggestions as a numbered list."
     )
 
 
@@ -45,34 +43,21 @@ def generate_suggestions(gap_analysis):
             "HUGGINGFACE_API_KEY not set. Add it to your .env file."
         )
 
-    prompt = build_prompt(gap_analysis)
-
-    response = requests.post(
-        HF_API_URL,
-        headers={"Authorization": f"Bearer {api_key}"},
-        json={
-            "inputs": prompt,
-            "parameters": {
-                "max_new_tokens": 512,
-                "temperature": 0.7,
-                "return_full_text": False,
-            },
-        },
-        timeout=60,
+    client = InferenceClient(
+        provider="novita",
+        api_key=os.getenv("HUGGINGFACE_API_KEY"),
     )
 
-    if response.status_code != 200:
-        raise RuntimeError(
-            f"Hugging Face API error {response.status_code}: {response.text}"
-        )
+    prompt = build_prompt(gap_analysis)
 
-    result = response.json()
+    response = client.chat.completions.create(
+        model="meta-llama/Llama-3.2-1B-Instruct",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=500,
+        stream=False,
+    )
 
-    # HF returns a list of dicts: [{"generated_text": "..."}]
-    if isinstance(result, list) and result:
-        return result[0].get("generated_text", "").strip()
-
-    raise RuntimeError(f"Unexpected response format from Hugging Face API: {result}")
+    return response.choices[0].message.content.strip()
 
 
 if __name__ == "__main__":

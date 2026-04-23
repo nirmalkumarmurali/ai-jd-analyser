@@ -3,7 +3,11 @@ import sys
 import os
 
 # Ensure the project root is on sys.path when running via `streamlit run app/main.py`
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+_project_root = os.path.join(os.path.dirname(__file__), "..")
+sys.path.insert(0, _project_root)
+
+from dotenv import load_dotenv
+load_dotenv(os.path.join(_project_root, ".env"))
 
 import streamlit as st
 import plotly.graph_objects as go
