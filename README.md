@@ -42,6 +42,7 @@ Built as part of a data science portfolio to demonstrate end-to-end NLP, text si
 ---
 
 ## 📁 Project Structure
+```
 
 ai-jd-analyser/
 │
@@ -63,6 +64,7 @@ ai-jd-analyser/
 ├── .env.example             # API key template
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
