@@ -7,7 +7,6 @@ sdk: docker
 app_file: app/main.py
 pinned: false
 ---
-
 # 🤖 AI Job Description Analyser
 
 > Paste any job description → get your CV match score, skill gaps, and actionable improvement suggestions — instantly.
