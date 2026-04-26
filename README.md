@@ -26,6 +26,16 @@ Job descriptions are dense. Recruiters scan CVs in seconds. This tool bridges th
 Built as part of a data science portfolio to demonstrate end-to-end NLP, text similarity, and applied ML skills.
 
 ---
+## 📸 Screenshots
+
+### App Interface
+![App Interface](screenshots/1.png)
+
+### Match Score & Skill Gap
+![Match Results](screenshots/2.png)
+
+### AI Suggestions & Keyword Chart
+![AI Suggestions](screenshots/3.png)
 
 ## 🚀 Features
 
