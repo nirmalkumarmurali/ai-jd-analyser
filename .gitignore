@@ -12,7 +12,7 @@ data/uploads/
 data/outputs/
 *.pdf
 *.csv
-
+screenshots/
 # IDE
 .vscode/
 .idea/
